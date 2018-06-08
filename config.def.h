@@ -226,7 +226,11 @@ static Shortcut shortcuts[] = {
  * If you want keys other than the X11 function keys (0xFD00 - 0xFFFF)
  * to be mapped below, add them to this array.
  */
-static KeySym mappedkeys[] = { -1 };
+//static KeySym mappedkeys[] = { -1 };
+static KeySym mappedkeys[] = {
+#include "config-term-keys-mappedkeys.h"
+    -1
+};
 
 /*
  * State bits to ignore when matching key or button events.  By default,
@@ -239,6 +243,7 @@ static uint ignoremod = Mod2Mask|XK_SWITCH_MOD;
  * world. Please decide about changes wisely.
  */
 static Key key[] = {
+#include "config-term-keys-key.h"
 	/* keysym           mask            string      appkey appcursor */
 	{ XK_KP_Home,       ShiftMask,      "\033[2J",       0,   -1},
 	{ XK_KP_Home,       ShiftMask,      "\033[1;2H",     0,   +1},
